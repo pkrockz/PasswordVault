@@ -1,6 +1,14 @@
+/**
+ * @fileoverview Secure password generator using cryptographic random number generation
+ */
+
 const crypto = require("crypto");
 
-// Function to Generate a Secure Password
+/**
+ * Generates a cryptographically secure random password
+ * @param {number} [length=12] - Length of the password to generate (default: 12)
+ * @returns {string} Generated password containing uppercase, lowercase, numbers, and special characters
+ */
 function generatePassword(length = 12) {
     const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_=+";
     let password = "";
