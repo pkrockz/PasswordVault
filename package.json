@@ -1,0 +1,36 @@
+{
+  "name": "passwordvault",
+  "version": "1.0.0",
+  "description": "A secure command-line password manager with AES-256 encryption and MongoDB storage",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "password-manager",
+    "password-vault",
+    "encryption",
+    "aes-256",
+    "mongodb",
+    "cli",
+    "security",
+    "password-generator"
+  ],
+  "author": "pkrockz",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pkrockz/PasswordVault.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pkrockz/PasswordVault/issues"
+  },
+  "homepage": "https://github.com/pkrockz/PasswordVault#readme",
+  "dependencies": {
+    "mongoose": "^7.0.0"
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  }
+}

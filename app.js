@@ -1,3 +1,8 @@
+/**
+ * @fileoverview Main application entry point for PasswordVault CLI
+ * Provides an interactive command-line interface for password management
+ */
+
 const readline = require("readline");
 const { storePassword, retrievePassword, deletePassword, createUser, authUser } = require("./database");
 
@@ -7,14 +12,27 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 
+/**
+ * Currently logged in user
+ * @type {string|null}
+ */
 let loggedInUser = null;
 
-// Prompt user for input
+/**
+ * Prompts user for input and returns a promise with the answer
+ * @param {string} question - The question to ask the user
+ * @returns {Promise<string>} The user's response
+ */
 const askQuestion = (question) => {
     return new Promise((resolve) => rl.question(question, resolve));
 };
 
-// User Login
+/**
+ * Handles user login authentication
+ * Continuously prompts for credentials until successful login
+ * @async
+ * @returns {Promise<void>}
+ */
 async function login() {
     console.log("\n🔐 Welcome to Password Vault!");
     while (!loggedInUser) {
@@ -30,7 +48,12 @@ async function login() {
     }
 }
 
-// Main Menu
+/**
+ * Displays and handles the main menu of the application
+ * Provides options for storing, retrieving, and deleting passwords
+ * @async
+ * @returns {Promise<void>}
+ */
 async function mainMenu() {
     while (true) {
         console.log("\n📌 Menu:");
@@ -68,7 +91,12 @@ async function mainMenu() {
     }
 }
 
-// Start application
+/**
+ * Initializes and starts the application
+ * Handles first-time user registration and login flow
+ * @async
+ * @returns {Promise<void>}
+ */
 async function startApp() {
     const firstTimeSetup = await askQuestion("🆕 Do you want to register a new user? (yes/no): ");
     if (firstTimeSetup.toLowerCase() === "yes") {
